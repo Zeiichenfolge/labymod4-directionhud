@@ -36,7 +36,7 @@ plugins {
     id("java-library")
 }
 
-group = "org.example"
+group = "xyz.zeichenfolge"
 version = "1.0.0"
 
 plugins.apply("net.labymod.gradle.addon")
@@ -60,15 +60,11 @@ subprojects {
 
 addon {
     addonInfo {
-        namespace("example")
-        displayName("Example Addon")
-        author("Example Author")
-        description("An Example Description!")
-        version(System.getenv().getOrDefault("VERSION", "0.0.0"))
-
-        //if you want to add dependencies, go to the build.gradle.kts in the core or api module
-        //add take a look in the dependencies block
+        namespace("directionhud")
+        displayName("DirectionHud")
+        author("Zeichenfolge")
+        description("This is a DirectionHud Addon which display's an compass")
+        version(System.getenv().getOrDefault("VERSION", "1.0.0"))
     }
-
     snapshotRelease()
 }

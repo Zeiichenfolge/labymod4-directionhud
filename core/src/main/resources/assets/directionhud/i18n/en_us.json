@@ -1,0 +1,10 @@
+{
+  "directionhud" : {
+    "settings" : {
+      "name" : "DirectionHud",
+      "enabled" : {
+        "name" : "Enabled"
+      }
+    }
+  }
+}
