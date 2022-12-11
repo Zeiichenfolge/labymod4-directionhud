@@ -27,7 +27,7 @@ public class DirectionHUDWidget extends SimpleHudWidget<DirectionHUDWidgetConfig
   @Override
   public void render(@Nullable Stack stack, MutableMouse mouse, float partialTicks,
       boolean isEditorContext, HudSize size) {
-    int widthHeight = 64;
+    int widthHeight = 32;
     size.set(widthHeight, widthHeight);
     if (stack == null) {
       return;

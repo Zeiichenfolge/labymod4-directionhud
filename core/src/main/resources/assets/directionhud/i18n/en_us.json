@@ -5,6 +5,11 @@
       "enabled" : {
         "name" : "Enabled"
       }
+    },
+    "hudWidget" : {
+      "directionhud" : {
+        "name" : "DirectionHud"
+      }
     }
   }
 }
