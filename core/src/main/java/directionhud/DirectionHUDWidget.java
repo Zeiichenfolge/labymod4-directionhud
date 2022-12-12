@@ -22,7 +22,7 @@ public class DirectionHUDWidget extends SimpleHudWidget<DirectionHUDWidgetConfig
   }
 
   ResourceLocation hudPng = ResourceLocation.create("directionhud",
-      "/assets/directionhud/i18n/hud.png");
+      "textures/hud.png");
 
   @Override
   public void render(@Nullable Stack stack, MutableMouse mouse, float partialTicks,
@@ -32,11 +32,11 @@ public class DirectionHUDWidget extends SimpleHudWidget<DirectionHUDWidgetConfig
     if (stack == null) {
       return;
     }
-    size.set(widthHeight, widthHeight);
     Laby.labyAPI().renderPipeline().resourceRenderer()
         .size(widthHeight, widthHeight)
         .pos(0, 0)
         .texture(hudPng)
+        .sprite(0,0,256)
         .render(stack);
   }
 }
