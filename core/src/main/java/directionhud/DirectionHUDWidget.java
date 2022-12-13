@@ -35,7 +35,6 @@ public class DirectionHUDWidget extends SimpleHudWidget<DirectionHUDWidgetConfig
       return;
     }
     float yaw = labyAPI.minecraft().clientPlayer().getRotationHeadYaw();
-    stack.push();
     if (yaw >= 360) {
       yaw -= 360;
     }
