@@ -8,7 +8,10 @@
     },
     "hudWidget" : {
       "directionhud" : {
-        "name" : "DirectionHud"
+        "name" : "DirectionHud",
+        "size": {
+          "name": "Size"
+        }
       }
     }
   }
