@@ -27,12 +27,10 @@ public class DirectionHUDWidget extends SimpleHudWidget<DirectionHUDWidgetConfig
   final Icon needleIcon = Icon.texture(
       ResourceLocation.create("directionhud", "textures/needle.png"));
 
-  final int widthHeight = 38;
-
   @Override
   public void render(@Nullable Stack stack, MutableMouse mouse, float partialTicks,
       boolean isEditorContext, HudSize size) {
-    size.set(widthHeight, widthHeight);
+    size.set(38, 38);
     if (stack == null) {
       return;
     }
@@ -42,18 +40,18 @@ public class DirectionHUDWidget extends SimpleHudWidget<DirectionHUDWidgetConfig
       yaw -= 360;
     }
     labyAPI.renderPipeline().resourceRenderer()
-        .size(widthHeight, widthHeight)
+        .size(size.getWidth(), size.getHeight())
         .pos(0, 0)
         .texture(hudPng)
         .sprite(0, 0, 256)
         .render(stack);
     stack.push();
-    float centerX = this.size.getWidth() / 2F;
-    float centerY = this.size.getHeight() / 2F;
+    float centerX = size.getWidth() / 2F;
+    float centerY = size.getHeight() / 2F;
     stack.translate(centerX, centerY, 0);
     stack.rotate(yaw, 0, 0, 1);
     stack.translate(-centerX, -centerY, 0);
-    needleIcon.render(stack, 0, 0, widthHeight);
+    needleIcon.render(stack, 0, 0, size.getWidth(), size.getHeight());
     stack.pop();
   }
 }
