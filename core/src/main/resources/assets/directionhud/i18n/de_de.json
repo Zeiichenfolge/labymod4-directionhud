@@ -3,17 +3,17 @@
     "settings" : {
       "name" : "DirectionHud",
       "enabled" : {
-        "name" : "Enabled"
+        "name" : "Aktiviert"
       }
     },
     "hudWidget" : {
       "directionhud" : {
         "name" : "DirectionHud",
         "size": {
-          "name": "Size"
+          "name": "Größe"
         },
         "rotateNeedle": {
-          "name": "Rotate Needle"
+          "name": "Nadel Drehen"
         }
       }
     }

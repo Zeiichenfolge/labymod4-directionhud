@@ -24,33 +24,56 @@ public class DirectionHUDWidget extends SimpleHudWidget<DirectionHUDWidgetConfig
   ResourceLocation hudPng = ResourceLocation.create("directionhud",
       "textures/hud.png");
 
+  ResourceLocation compassPng = ResourceLocation.create("directionhud",
+      "textures/compass.png");
+
   final Icon needleIcon = Icon.texture(
       ResourceLocation.create("directionhud", "textures/needle.png"));
 
   @Override
   public void render(@Nullable Stack stack, MutableMouse mouse, float partialTicks,
       boolean isEditorContext, HudSize size) {
-    size.set(38, 38);
+    size.set(config.size() * 8, config.size() * 8);
     if (stack == null) {
       return;
     }
-    float yaw = labyAPI.minecraft().clientPlayer().getRotationHeadYaw();
+    float yaw = 0;
+    if (labyAPI.minecraft().clientPlayer() != null) {
+      yaw = labyAPI.minecraft().clientPlayer().getRotationHeadYaw();
+    }
     if (yaw >= 360) {
       yaw -= 360;
     }
-    labyAPI.renderPipeline().resourceRenderer()
-        .size(size.getWidth(), size.getHeight())
-        .pos(0, 0)
-        .texture(hudPng)
-        .sprite(0, 0, 256)
-        .render(stack);
-    stack.push();
-    float centerX = size.getWidth() / 2F;
-    float centerY = size.getHeight() / 2F;
-    stack.translate(centerX, centerY, 0);
-    stack.rotate(yaw, 0, 0, 1);
-    stack.translate(-centerX, -centerY, 0);
-    needleIcon.render(stack, 0, 0, size.getWidth(), size.getHeight());
-    stack.pop();
+    if (config.rotateNeedle()) {
+      labyAPI.renderPipeline().resourceRenderer()
+          .size(size.getWidth(), size.getHeight())
+          .pos(0, 0)
+          .texture(hudPng)
+          .sprite(0, 0, 256)
+          .render(stack);
+      stack.push();
+      float centerX = size.getWidth() / 2F;
+      float centerY = size.getHeight() / 2F;
+      stack.translate(centerX, centerY, 0);
+      stack.rotate(yaw, 0, 0, 1);
+      stack.translate(-centerX, -centerY, 0);
+      needleIcon.render(stack, 0, 0, size.getWidth(), size.getHeight());
+      stack.pop();
+    } else {
+      stack.push();
+      float centerX = size.getWidth() / 2F;
+      float centerY = size.getHeight() / 2F;
+      stack.translate(centerX, centerY, 0);
+      stack.rotate(-yaw, 0, 0, 1);
+      stack.translate(-centerX, -centerY, 0);
+      labyAPI.renderPipeline().resourceRenderer()
+          .size(size.getWidth(), size.getHeight())
+          .pos(0, 0)
+          .texture(hudPng)
+          .sprite(0, 0, 256)
+          .render(stack);
+      stack.pop();
+      needleIcon.render(stack, 0, 0, size.getWidth(), size.getHeight());
+    }
   }
 }

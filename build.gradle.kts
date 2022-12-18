@@ -28,7 +28,7 @@ buildscript {
     }
 
     dependencies {
-        classpath("net.labymod.gradle", "addon", "0.2.51")
+        classpath("net.labymod.gradle", "addon", "0.2.54")
     }
 }
 
@@ -63,8 +63,9 @@ addon {
         namespace("directionhud")
         displayName("DirectionHud")
         author("Zeichenfolge")
-        description("This is a DirectionHud Addon which display's an compass")
+        description("DirectionHud Addon which display's an compass")
         version(System.getenv().getOrDefault("VERSION", "1.0.0"))
+        iconUrl("https://raw.githubusercontent.com/Adler702/labymod4-directionhud/master/core/src/main/resources/assets/directionhud/textures/hud.png", project(":core"))
     }
     snapshotRelease()
 }
