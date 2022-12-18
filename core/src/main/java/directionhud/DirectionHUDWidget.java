@@ -24,9 +24,6 @@ public class DirectionHUDWidget extends SimpleHudWidget<DirectionHUDWidgetConfig
   ResourceLocation hudPng = ResourceLocation.create("directionhud",
       "textures/hud.png");
 
-  ResourceLocation compassPng = ResourceLocation.create("directionhud",
-      "textures/compass.png");
-
   final Icon needleIcon = Icon.texture(
       ResourceLocation.create("directionhud", "textures/needle.png"));
 
