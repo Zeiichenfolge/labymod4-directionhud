@@ -65,7 +65,7 @@ addon {
         author("Zeichenfolge")
         description("DirectionHud Addon which display's an compass")
         version(System.getenv().getOrDefault("VERSION", "1.0.0"))
-        iconUrl("https://raw.githubusercontent.com/Adler702/labymod4-directionhud/master/core/src/main/resources/assets/directionhud/textures/hud.png", project(":core"))
+        iconUrl("https://raw.githubusercontent.com/Adler702/labymod4-directionhud/master/core/src/main/resources/assets/directionhud/textures/icon.png", project(":core"))
     }
     snapshotRelease()
 }
