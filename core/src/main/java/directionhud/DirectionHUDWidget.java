@@ -12,20 +12,21 @@ import org.jetbrains.annotations.Nullable;
 @SuppressWarnings("unchecked")
 public class DirectionHUDWidget extends SimpleHudWidget<DirectionHUDWidgetConfig> {
 
+  final ResourceLocation hudPng = ResourceLocation.create("directionhud",
+      "textures/hud.png");
+
+  final Icon needleIcon = Icon.texture(
+      ResourceLocation.create("directionhud", "textures/needle.png"));
+
   public DirectionHUDWidget(String id) {
     super(id, DirectionHUDWidgetConfig.class);
+    this.setIcon(Icon.texture(hudPng));
   }
 
   @Override
   public boolean isVisibleInGame() {
     return true;
   }
-
-  ResourceLocation hudPng = ResourceLocation.create("directionhud",
-      "textures/hud.png");
-
-  final Icon needleIcon = Icon.texture(
-      ResourceLocation.create("directionhud", "textures/needle.png"));
 
   @Override
   public void render(@Nullable Stack stack, MutableMouse mouse, float partialTicks,
