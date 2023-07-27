@@ -2,7 +2,6 @@
 package xyz.zeichenfolge.directionhud.widget;
 
 import java.awt.*;
-import java.util.Objects;
 import net.labymod.api.client.gui.hud.hudwidget.SimpleHudWidget;
 import net.labymod.api.client.gui.hud.position.HudSize;
 import net.labymod.api.client.gui.icon.Icon;
@@ -26,21 +25,21 @@ public class DirectionHudBarWidget extends SimpleHudWidget<DirectionHudBarWidget
   @Override
   public void render(Stack stack, MutableMouse mouse, float partialTicks, boolean isEditorContext,
       HudSize size) {
-    size.set(65, 12);;
+    size.set(65, 12);
+    ;
     if (stack == null) {
       return;
     }
     float yaw = 0;
     if (labyAPI.minecraft().getClientPlayer() != null) {
-      yaw = Objects.requireNonNull(labyAPI.minecraft().getClientPlayer()).getRotationHeadYaw();
+      yaw = (float) (((labyAPI.minecraft().getClientPlayer().getRotationHeadYaw() * 256F) / 360F));
     }
-    yaw = (yaw + 180) % 360;
     if (yaw < 128) {
-      labyAPI.renderPipeline().resourceRenderer().texture(compass).size(65, 12).sprite(yaw, 0, 12)
-          .render(stack);
+      labyAPI.renderPipeline().resourceRenderer().texture(compass).size(65, 12)
+          .sprite(yaw, 0, 65, 12).render(stack);
     } else {
       labyAPI.renderPipeline().resourceRenderer().texture(compass).size(65, 12)
-          .sprite(yaw - 128, 12, 12).render(stack);
+          .sprite(yaw - 128, 12, 65, 12).render(stack);
     }
     labyAPI.renderPipeline().textRenderer().text("|").pos((float) size.getWidth() / 2, 1)
         .color(Color.RED.getRGB()).render(stack);
@@ -50,6 +49,6 @@ public class DirectionHudBarWidget extends SimpleHudWidget<DirectionHudBarWidget
 
   @Override
   public boolean isVisibleInGame() {
-    return false;
+    return true;
   }
 }
