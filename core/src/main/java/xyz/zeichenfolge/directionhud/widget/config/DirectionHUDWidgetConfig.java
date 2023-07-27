@@ -1,5 +1,5 @@
 // Created by Torben R.
-package directionhud;
+package xyz.zeichenfolge.directionhud.widget.config;
 
 import net.labymod.api.client.gui.hud.hudwidget.HudWidgetConfig;
 import net.labymod.api.client.gui.screen.widget.widgets.input.SwitchWidget.SwitchSetting;

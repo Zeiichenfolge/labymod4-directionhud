@@ -4,18 +4,18 @@ plugins {
     id("net.labymod.gradle.addon")
 }
 
-group = "xyz.zeichenfolge"
+group = "directionhud"
 version = "1.0.0"
 
 java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 
 labyMod {
-    defaultPackageName = "xyz.zeichenfolge" //change this to your main package name (used by all modules)
+    defaultPackageName = "directionhud" //change this to your main package name (used by all modules)
     addonInfo {
         namespace = "directionhud"
         displayName = "DirectionHud"
         author = "Zeichenfolge"
-        description = "DirectionHud Addon which display's an compass"
+        description = "An Addon which display's an DirectionHud"
         minecraftVersion = "*"
         version = System.getenv().getOrDefault("VERSION", "0.0.1")
     }
@@ -23,11 +23,13 @@ labyMod {
     minecraft {
         registerVersions(
                 "1.8.9",
+                "1.12.2",
+                "1.16.5",
                 "1.17.1",
                 "1.18.2",
                 "1.19.2",
                 "1.19.3",
-                "23w04a"
+                "1.19.4"
         ) { version, provider ->
             configureRun(provider, version)
         }
@@ -69,14 +71,6 @@ fun configureRun(provider: net.labymod.gradle.core.minecraft.provider.VersionPro
     }
 
     provider.javaVersion = when (gameVersion) {
-        "1.8.9", "1.12.2", "1.16.5" -> {
-            JavaVersion.VERSION_1_8
-        }
-
-        "1.17.1" -> {
-            JavaVersion.VERSION_16
-        }
-
         else -> {
             JavaVersion.VERSION_17
         }

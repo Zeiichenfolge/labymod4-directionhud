@@ -1,20 +1,28 @@
 {
-  "directionhud" : {
-    "settings" : {
-      "name" : "DirectionHud",
-      "enabled" : {
-        "name" : "Aktiviert"
+  "directionhud": {
+    "settings": {
+      "name": "DirectionHud",
+      "enabled": {
+        "name": "Aktiviert"
       }
     },
-    "hudWidget" : {
-      "directionhud" : {
-        "name" : "DirectionHud",
+    "hudWidget": {
+      "directionhud": {
+        "name": "DirectionHud",
         "size": {
           "name": "Größe"
         },
         "rotateNeedle": {
           "name": "Nadel Drehen"
+        },
+        "oldDesign": {
+          "name": "Nutze bekanntes Design"
         }
+      }
+    },
+    "barwidget": {
+      "directionhud": {
+        "name": "DirectionHud Horizontal"
       }
     }
   }

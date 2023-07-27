@@ -1,4 +1,4 @@
-package directionhud;
+package xyz.zeichenfolge.directionhud;
 
 import net.labymod.api.addon.AddonConfig;
 import net.labymod.api.client.gui.screen.widget.widgets.input.SwitchWidget.SwitchSetting;

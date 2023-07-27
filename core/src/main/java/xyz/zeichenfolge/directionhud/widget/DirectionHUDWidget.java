@@ -1,5 +1,5 @@
 // Created by Torben R.
-package directionhud;
+package xyz.zeichenfolge.directionhud.widget;
 
 import net.labymod.api.client.gui.hud.hudwidget.SimpleHudWidget;
 import net.labymod.api.client.gui.hud.position.HudSize;
@@ -8,8 +8,8 @@ import net.labymod.api.client.gui.mouse.MutableMouse;
 import net.labymod.api.client.render.matrix.Stack;
 import net.labymod.api.client.resources.ResourceLocation;
 import org.jetbrains.annotations.Nullable;
+import xyz.zeichenfolge.directionhud.widget.config.DirectionHUDWidgetConfig;
 
-@SuppressWarnings("unchecked")
 public class DirectionHUDWidget extends SimpleHudWidget<DirectionHUDWidgetConfig> {
 
   final ResourceLocation hudPng = ResourceLocation.create("directionhud",
@@ -39,7 +39,7 @@ public class DirectionHUDWidget extends SimpleHudWidget<DirectionHUDWidgetConfig
     if (labyAPI.minecraft().clientPlayer() != null) {
       yaw = labyAPI.minecraft().clientPlayer().getRotationHeadYaw();
     }
-    yaw = (yaw+180) % 360;
+    yaw = (yaw + 180) % 360;
     if (config.rotateNeedle()) {
       labyAPI.renderPipeline().resourceRenderer()
           .size(size.getWidth(), size.getHeight())
