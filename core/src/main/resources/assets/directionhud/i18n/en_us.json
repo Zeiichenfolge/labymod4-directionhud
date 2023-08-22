@@ -18,12 +18,11 @@
         "oldDesign": {
           "name": "Use Old Design"
         }
-      }
-    },
-    "barwidget": {
-      "directionhud": {
-        "name": "DirectionHud Horizontal"
+      },
+      "directionhudbar": {
+        "name": "DirectionHud horizontal"
       }
     }
+
   }
 }

@@ -10,7 +10,7 @@ version = "1.0.0"
 java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 
 labyMod {
-    defaultPackageName = "directionhud" //change this to your main package name (used by all modules)
+    defaultPackageName = "xyz.zeichenfolge.directionhud" //change this to your main package name (used by all modules)
     addonInfo {
         namespace = "directionhud"
         displayName = "DirectionHud"
@@ -42,7 +42,7 @@ labyMod {
     }
 
     addonDev {
-        snapshotRelease()
+        productionRelease()
     }
 }
 

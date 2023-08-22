@@ -13,9 +13,9 @@ import xyz.zeichenfolge.directionhud.widget.config.DirectionHudBarWidgetConfig;
 public class DirectionHudBarWidget extends SimpleHudWidget<DirectionHudBarWidgetConfig> {
 
   final ResourceLocation hudPng = ResourceLocation.create("directionhud",
-      "textures/hud.png");
+      "textures/compass-raw.png");
   final ResourceLocation compass = ResourceLocation.create("directionhud",
-      "textures/compass.png");
+      "textures/compass-fixed-dark.png");
 
   public DirectionHudBarWidget(String id) {
     super(id, DirectionHudBarWidgetConfig.class);
@@ -26,7 +26,6 @@ public class DirectionHudBarWidget extends SimpleHudWidget<DirectionHudBarWidget
   public void render(Stack stack, MutableMouse mouse, float partialTicks, boolean isEditorContext,
       HudSize size) {
     size.set(65, 12);
-    ;
     if (stack == null) {
       return;
     }

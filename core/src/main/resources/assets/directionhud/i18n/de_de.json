@@ -18,11 +18,9 @@
         "oldDesign": {
           "name": "Nutze bekanntes Design"
         }
-      }
-    },
-    "barwidget": {
-      "directionhud": {
-        "name": "DirectionHud Horizontal"
+      },
+      "directionhudbar": {
+        "name": "DirectionHud horizontal"
       }
     }
   }
