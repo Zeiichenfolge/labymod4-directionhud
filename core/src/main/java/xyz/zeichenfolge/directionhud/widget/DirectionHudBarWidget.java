@@ -15,7 +15,7 @@ public class DirectionHudBarWidget extends SimpleHudWidget<DirectionHudBarWidget
   final ResourceLocation hudPng = ResourceLocation.create("directionhud",
       "textures/compass-raw.png");
   final ResourceLocation compass = ResourceLocation.create("directionhud",
-      "textures/compass-fixed-dark.png");
+      "textures/compass-fixed.png");
 
   public DirectionHudBarWidget(String id) {
     super(id, DirectionHudBarWidgetConfig.class);
@@ -29,16 +29,22 @@ public class DirectionHudBarWidget extends SimpleHudWidget<DirectionHudBarWidget
     if (stack == null) {
       return;
     }
-    float yaw = 0;
+    double yaw = 0;
     if (labyAPI.minecraft().getClientPlayer() != null) {
       yaw = (float) (((labyAPI.minecraft().getClientPlayer().getRotationHeadYaw() * 256F) / 360F));
     }
+    if (yaw > 256) {
+      yaw -= 256;
+    }
+    if (yaw < 0) {
+      yaw += 256;
+    }
     if (yaw < 128) {
       labyAPI.renderPipeline().resourceRenderer().texture(compass).size(65, 12)
-          .sprite(yaw, 0, 65, 12).render(stack);
+          .sprite((float) yaw, 0, 65, 12).render(stack);
     } else {
       labyAPI.renderPipeline().resourceRenderer().texture(compass).size(65, 12)
-          .sprite(yaw - 128, 12, 65, 12).render(stack);
+          .sprite((float) (yaw - 128), 12, 65, 12).render(stack);
     }
     labyAPI.renderPipeline().textRenderer().text("|").pos((float) size.getWidth() / 2, 1)
         .color(Color.RED.getRGB()).render(stack);
