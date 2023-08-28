@@ -8,9 +8,12 @@ import net.labymod.api.client.gui.mouse.MutableMouse;
 import net.labymod.api.client.render.matrix.Stack;
 import net.labymod.api.client.resources.ResourceLocation;
 import org.jetbrains.annotations.Nullable;
+import xyz.zeichenfolge.directionhud.DirectionHUD;
 import xyz.zeichenfolge.directionhud.widget.config.DirectionHUDWidgetConfig;
 
 public class DirectionHUDWidget extends SimpleHudWidget<DirectionHUDWidgetConfig> {
+
+  private final DirectionHUD directionHUD;
 
   final ResourceLocation hudPng = ResourceLocation.create("directionhud",
       "textures/hud.png");
@@ -18,8 +21,9 @@ public class DirectionHUDWidget extends SimpleHudWidget<DirectionHUDWidgetConfig
   final Icon needleIcon = Icon.texture(
       ResourceLocation.create("directionhud", "textures/needle.png"));
 
-  public DirectionHUDWidget(String id) {
+  public DirectionHUDWidget(String id, DirectionHUD directionHUD) {
     super(id, DirectionHUDWidgetConfig.class);
+    this.directionHUD = directionHUD;
     this.setIcon(Icon.texture(hudPng));
   }
 

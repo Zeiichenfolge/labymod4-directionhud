@@ -2,24 +2,31 @@
 package xyz.zeichenfolge.directionhud.widget;
 
 import java.awt.*;
+import net.labymod.addons.waypoints.waypoint.Waypoint;
 import net.labymod.api.client.gui.hud.hudwidget.SimpleHudWidget;
 import net.labymod.api.client.gui.hud.position.HudSize;
 import net.labymod.api.client.gui.icon.Icon;
 import net.labymod.api.client.gui.mouse.MutableMouse;
 import net.labymod.api.client.render.matrix.Stack;
 import net.labymod.api.client.resources.ResourceLocation;
+import net.labymod.api.util.math.vector.FloatVector3;
+import xyz.zeichenfolge.directionhud.DirectionHUD;
 import xyz.zeichenfolge.directionhud.widget.config.DirectionHudBarWidgetConfig;
 
 public class DirectionHudBarWidget extends SimpleHudWidget<DirectionHudBarWidgetConfig> {
+
+  private final DirectionHUD directionHUD;
 
   final ResourceLocation hudPng = ResourceLocation.create("directionhud",
       "textures/compass-raw.png");
   final ResourceLocation compass = ResourceLocation.create("directionhud",
       "textures/compass-fixed.png");
 
-  public DirectionHudBarWidget(String id) {
+  public DirectionHudBarWidget(String id, DirectionHUD directionHUD) {
     super(id, DirectionHudBarWidgetConfig.class);
+    this.directionHUD = directionHUD;
     this.setIcon(Icon.texture(hudPng));
+
   }
 
   @Override
@@ -55,5 +62,19 @@ public class DirectionHudBarWidget extends SimpleHudWidget<DirectionHudBarWidget
   @Override
   public boolean isVisibleInGame() {
     return true;
+  }
+
+  public double calculateYawAngleToLocation(FloatVector3 from, FloatVector3 to) {
+    FloatVector3 dirVec = to.sub(from).normalize();
+
+    double angle = Math.atan2(dirVec.getX(), dirVec.getZ());
+
+    angle = Math.toDegrees(angle);
+
+    if (angle < 0) {
+      angle += 256;
+    }
+
+    return angle;
   }
 }

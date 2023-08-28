@@ -8,15 +8,22 @@ import xyz.zeichenfolge.directionhud.widget.DirectionHudBarWidget;
 @AddonMain
 public class DirectionHUD extends LabyAddon<DirectionHUDConfig> {
 
+  private final WayPointsIntegration wayPointsIntegration = new WayPointsIntegration();
+
   @Override
   protected void enable() {
     this.registerSettingCategory();
-    labyAPI().hudWidgetRegistry().register(new DirectionHUDWidget("directionhud"));
-    labyAPI().hudWidgetRegistry().register(new DirectionHudBarWidget("directionhudbar"));
+    wayPointsIntegration.load();
+    labyAPI().hudWidgetRegistry().register(new DirectionHUDWidget("directionhud", this));
+    labyAPI().hudWidgetRegistry().register(new DirectionHudBarWidget("directionhudbar", this));
   }
 
   @Override
   protected Class<DirectionHUDConfig> configurationClass() {
     return DirectionHUDConfig.class;
+  }
+
+  public WayPointsIntegration getWayPointsIntegration() {
+    return wayPointsIntegration;
   }
 }
