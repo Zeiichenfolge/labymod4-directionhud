@@ -2,14 +2,12 @@
 package xyz.zeichenfolge.directionhud.widget;
 
 import java.awt.*;
-import net.labymod.addons.waypoints.waypoint.Waypoint;
 import net.labymod.api.client.gui.hud.hudwidget.SimpleHudWidget;
 import net.labymod.api.client.gui.hud.position.HudSize;
 import net.labymod.api.client.gui.icon.Icon;
 import net.labymod.api.client.gui.mouse.MutableMouse;
 import net.labymod.api.client.render.matrix.Stack;
 import net.labymod.api.client.resources.ResourceLocation;
-import net.labymod.api.util.math.vector.FloatVector3;
 import xyz.zeichenfolge.directionhud.DirectionHUD;
 import xyz.zeichenfolge.directionhud.widget.config.DirectionHudBarWidgetConfig;
 
@@ -63,7 +61,7 @@ public class DirectionHudBarWidget extends SimpleHudWidget<DirectionHudBarWidget
   public boolean isVisibleInGame() {
     return true;
   }
-
+  /*
   public double calculateYawAngleToLocation(FloatVector3 from, FloatVector3 to) {
     FloatVector3 dirVec = to.sub(from).normalize();
 
@@ -77,4 +75,5 @@ public class DirectionHudBarWidget extends SimpleHudWidget<DirectionHudBarWidget
 
     return angle;
   }
+   */
 }

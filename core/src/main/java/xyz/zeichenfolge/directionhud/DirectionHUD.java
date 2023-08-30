@@ -8,12 +8,12 @@ import xyz.zeichenfolge.directionhud.widget.DirectionHudBarWidget;
 @AddonMain
 public class DirectionHUD extends LabyAddon<DirectionHUDConfig> {
 
-  private final WayPointsIntegration wayPointsIntegration = new WayPointsIntegration();
+  //private final WayPointsIntegration wayPointsIntegration = new WayPointsIntegration();
 
   @Override
   protected void enable() {
     this.registerSettingCategory();
-    wayPointsIntegration.load();
+    //wayPointsIntegration.load();
     labyAPI().hudWidgetRegistry().register(new DirectionHUDWidget("directionhud", this));
     labyAPI().hudWidgetRegistry().register(new DirectionHudBarWidget("directionhudbar", this));
   }
@@ -23,7 +23,10 @@ public class DirectionHUD extends LabyAddon<DirectionHUDConfig> {
     return DirectionHUDConfig.class;
   }
 
+  /*
   public WayPointsIntegration getWayPointsIntegration() {
     return wayPointsIntegration;
   }
+
+   */
 }
